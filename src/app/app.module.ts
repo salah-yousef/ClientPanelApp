@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from "@angular/router";
 import { FormsModule } from "@angular/forms";
+import { FlashMessagesModule } from "angular2-flash-messages";
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabase } from "@angular/fire/database";
@@ -59,7 +60,8 @@ export const firebaseConfig = {
     BrowserModule,
     RouterModule.forRoot(routes),
     AngularFireModule.initializeApp(firebaseConfig),
-    FormsModule
+    FormsModule,
+    FlashMessagesModule.forRoot()
   ],
   providers: [
     AngularFireAuth,

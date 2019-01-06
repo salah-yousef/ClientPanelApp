@@ -16,4 +16,9 @@ export class ClientService {
   getClients() {
     return this.clients;
   }
+
+  addNewClient(client:Client) {
+    this.clients.push(client);
+  }
+
 }

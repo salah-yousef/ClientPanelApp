@@ -19,12 +19,8 @@ export class ClientsComponent implements OnInit {
   ngOnInit() {
     this.clientService.getClients().snapshotChanges(['child_added'])
     .subscribe(actions => {
-      console.log(actions);
       this.clients = actions;
       actions.forEach(action => {
-        console.log(action.type);
-        console.log(action.key);
-        console.log(action.payload.val());
       });
       this.getTotalOwed();
     });
@@ -36,7 +32,6 @@ export class ClientsComponent implements OnInit {
       total += parseFloat(this.clients[i].payload.val().balance);      
     }
     this.totalOwed = total;
-    console.log(this.totalOwed);
   }
 
 }

@@ -30,4 +30,8 @@ export class ClientService {
     return this.client;
   }
 
+  deleteClient(id:string) {
+    this.clients.remove(id);
+  }
+
 }

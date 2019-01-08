@@ -33,7 +33,6 @@ export class EditClientComponent implements OnInit {
 
     this.clientService.getClient(this.id).snapshotChanges().subscribe(client => {
       this.client = client.payload.val();
-      console.log(this.client);
     });
   }
 
@@ -43,7 +42,7 @@ export class EditClientComponent implements OnInit {
       this.clientService.updateClient(this.id, value);
       //show flash message
       this.flashMessagesService.show('Client Updated', {cssClass:'alert-success', timeout:8000});
-      //navigate to add dashboard
+      //navigate to that client
       this.router.navigate(['/client/'+this.id]);
     }else {
       this.flashMessagesService.show('Please fill in required fields', {cssClass:'alert-danger', timeout:4000});

@@ -29,6 +29,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'add-client', component: AddClientComponent },
   { path: 'client/:id', component: ClientDetailsComponent },
+  { path: 'edit-client/:id', component: EditClientComponent },
   { path: '**', component: Error404Component }
 ];
 

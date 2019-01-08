@@ -4,8 +4,8 @@
   </div>
   <div class="col-md-6">
     <div class="btn-group pull-right">
-      <a [routerLink]="[ '/edit-client'+id]" class="btn btn-primary">Edit</a>
-      <button type="button" class="btn btn-danger" (click)="onDeleteClick()">Delete</button>
+      <a class="pencil" [routerLink]="[ '/edit-client/'+id]"><i class="fa fa-pencil fa-2x" aria-hidden="true"></i></a>
+      <a [routerLink]="[ '/client/'+id]" (click)="onDeleteClick()"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
     </div>
   </div>
 </div>
@@ -22,7 +22,16 @@
           <div class="col-md-8">
             <h4>Client ID: {{id}}</h4>
           </div>
-          <div class="col-md-4"></div>
+          <div class="col-md-4">
+            <h3 class="pull-right">
+              <ng-container *ngIf="hasBalance; else elseTemplate">
+                  Balance: <span class="text-success">{{client.balance | currency:'USD'}}</span>
+              </ng-container>
+              <ng-template #elseTemplate>
+                  Balance: <span class="text-danger">{{client.balance | currency:'USD'}}</span>
+              </ng-template>
+            </h3>
+          </div>
       </div>
       <ul class="list-group">
           <li class="list-group-item">Contact Email: {{client.email}}</li>

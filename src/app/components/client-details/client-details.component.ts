@@ -13,7 +13,6 @@ export class ClientDetailsComponent implements OnInit {
   id:string;
   client:any;
   hasBalance:boolean = false;
-  showBalanceUpdateInput:boolean = false;
 
   constructor(
     public clientService:ClientService,
@@ -29,8 +28,8 @@ export class ClientDetailsComponent implements OnInit {
         this.hasBalance = true;
       }
       this.client = client.payload.val();
-      console.log(this.client);
     });
   }
+
 
 }

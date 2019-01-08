@@ -21,6 +21,10 @@ export class ClientService {
     this.clients.push(client);
   }
 
+  updateClient(id:string, client:Client) {
+    this.clients.update(id, client);
+  }
+
   getClient(id:string) {
     this.client = this.AngularFirebase.object('/clients/'+id) as AngularFireObject<Client>;
     return this.client;

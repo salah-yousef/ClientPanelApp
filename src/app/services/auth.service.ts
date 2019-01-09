@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
-import { Observable } from "rxjs";
-import { reject } from 'q';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +10,7 @@ export class AuthService {
     public afAuth:AngularFireAuth
   ) { }
 
+  //login function
   login(email:string, password:string) {
     console.log("login");
     
@@ -21,5 +20,15 @@ export class AuthService {
         err => reject(err));
     });
 
+  }
+
+  //check user status
+  getAuth() {
+    return this.afAuth.authState;
+  }
+
+  //logout function
+  logout() {
+    this.afAuth.auth.signOut();
   }
 }

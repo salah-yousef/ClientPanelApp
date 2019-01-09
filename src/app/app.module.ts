@@ -8,6 +8,7 @@ import { AngularFireModule } from "@angular/fire";
 import { AngularFireDatabase } from "@angular/fire/database";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { ClientService } from "./services/client.service";
+import { AuthService } from "./services/auth.service";
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -68,7 +69,8 @@ export const firebaseConfig = {
   providers: [
     AngularFireAuth,
     AngularFireDatabase,
-    ClientService
+    ClientService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

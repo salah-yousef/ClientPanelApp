@@ -23,6 +23,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { Error404Component } from './components/error404/error404.component';
+import { ClientNamePipe } from './pipes/client-name.pipe';
 
 
 const routes: Routes = [
@@ -58,7 +59,8 @@ export const firebaseConfig = {
     LoginComponent,
     RegisterComponent,
     SettingsComponent,
-    Error404Component
+    Error404Component,
+    ClientNamePipe
   ],
   imports: [
     BrowserModule,

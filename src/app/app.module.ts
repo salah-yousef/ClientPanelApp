@@ -9,6 +9,7 @@ import { AngularFireDatabase } from "@angular/fire/database";
 import { AngularFireAuth } from "@angular/fire/auth";
 import { ClientService } from "./services/client.service";
 import { AuthService } from "./services/auth.service";
+import { AuthGuard } from "./guards/auth.guard";
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -25,13 +26,13 @@ import { Error404Component } from './components/error404/error404.component';
 
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent },
+  { path: '', component: DashboardComponent, canActivate:[AuthGuard]},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'add-client', component: AddClientComponent },
-  { path: 'client/:id', component: ClientDetailsComponent },
-  { path: 'edit-client/:id', component: EditClientComponent },
-  { path: '**', component: Error404Component }
+  { path: 'add-client', component: AddClientComponent, canActivate:[AuthGuard]},
+  { path: 'client/:id', component: ClientDetailsComponent, canActivate:[AuthGuard]},
+  { path: 'edit-client/:id', component: EditClientComponent, canActivate:[AuthGuard]},
+  { path: '**', component: Error404Component, canActivate:[AuthGuard]}
 ];
 
 
@@ -70,7 +71,8 @@ export const firebaseConfig = {
     AngularFireAuth,
     AngularFireDatabase,
     ClientService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

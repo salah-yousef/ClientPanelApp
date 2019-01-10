@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from "@angular/fire/auth";
+import { promise } from 'protractor';
+import { resolve } from 'url';
+import { reject } from 'q';
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +33,14 @@ export class AuthService {
   //logout function
   logout() {
     this.afAuth.auth.signOut();
+  }
+
+  //Register User
+  register(email:string, password:string) {
+    return new Promise((resolve, reject) => {
+      this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+        .then(userData => resolve(userData), 
+        err => reject(err));
+    });
   }
 }

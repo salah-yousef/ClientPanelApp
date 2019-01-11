@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   isLoggedIn:boolean;
   loggedInUser:string;
   showRegister:boolean;
+  public isCollapsed = true;
 
   constructor(
     private authService:AuthService,

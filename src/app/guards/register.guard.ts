@@ -15,7 +15,7 @@ export class RegisterGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
       
-      if (this.settingsService.getSettings().alllowRegistration) {
+      if (this.settingsService.getSettings().allowRegistration) {
         return true;
       } else {
         this.router.navigate(['/login']);

@@ -43,7 +43,7 @@ export class EditClientComponent implements OnInit {
       //Update client
       this.clientService.updateClient(this.id, value);
       //show flash message
-      this.flashMessagesService.show('Client Updated', {cssClass:'alert-success', timeout:8000});
+      this.flashMessagesService.show('Client Updated', {cssClass:'alert-success', timeout:4000});
       //navigate to that client
       this.router.navigate(['/client/'+this.id]);
     }else {

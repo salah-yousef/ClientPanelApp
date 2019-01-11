@@ -34,7 +34,7 @@ export class ClientDetailsComponent implements OnInit {
   onDeleteClick() {
     if(confirm("Are you sure you want to detele this item from client side and server side?")){
       this.clientService.deleteClient(this.id);
-      this.flashMessagesService.show('Client Deleted',{cssClass:'alert-success', timeout:8000});
+      this.flashMessagesService.show('Client Deleted',{cssClass:'alert-success', timeout:4000});
       this.router.navigate(['/']);
     }
 

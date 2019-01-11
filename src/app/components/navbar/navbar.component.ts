@@ -31,12 +31,12 @@ export class NavbarComponent implements OnInit {
       }
     });
 
-    this.showRegister = this.settingsService.getSettings().alllowRegistration;
+    this.showRegister = this.settingsService.getSettings().allowRegistration;
   }
 
   onLogoutClick() {
     this.authService.logout();
-    this.flashMessagesService.show('You are logged out',{cssClass:'alert-success', timeout: 8000});
+    this.flashMessagesService.show('You are logged out',{cssClass:'alert-success', timeout: 4000});
     this.router.navigate(['/login/']);
   }
 

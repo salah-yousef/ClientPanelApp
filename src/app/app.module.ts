@@ -68,7 +68,7 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { useHash: true }),
     AngularFireModule.initializeApp(firebaseConfig),
     FormsModule,
     FlashMessagesModule.forRoot(),

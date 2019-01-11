@@ -6,36 +6,36 @@
     <h5 class="pull-right text-muted">Total Owed: {{ totalOwed | currency:'USD' }}</h5>
   </div>
 </div>
-<table class="table table-striped" *ngIf="clients?.length >0;else noClients">
-  <thead class="thead-dark">
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Balance</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let client of clients">
-      <td>
-        {{client.key}}
-      </td>
-      <td>
-        {{client.payload.val().firstName}} {{client.payload.val().lastName}}
-      </td>
-      <td>
-        {{client.payload.val().email}}
-      </td>
-      <td>
-        {{client.payload.val().balance | currency:'USD' }}
-      </td>
-      <td>
-        <a href="" [routerLink]="[ '/client/'+client.key]" class="btn btn-secondary btn-sm"><i class="fa fa-caret-down"></i>  Details</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+  <table class="table table-responsive table-striped" *ngIf="clients?.length >0;else noClients">
+    <thead class="thead-dark">
+      <tr>
+        <th class="d-none d-lg-block">ID</th>
+        <th>Name</th>
+        <th class="d-none d-sm-block">Email</th>
+        <th>Balance</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients">
+        <td class="d-none d-lg-block">
+          {{client.key}}
+        </td>
+        <td>
+          {{client.payload.val().firstName}} {{client.payload.val().lastName}}
+        </td>
+        <td class="d-none d-sm-block">
+          {{client.payload.val().email}}
+        </td>
+        <td>
+          {{client.payload.val().balance | currency:'USD' }}
+        </td>
+        <td>
+          <a href="" [routerLink]="[ '/client/'+client.key]" class="btn btn-secondary btn-sm"><i class="fa fa-caret-down"></i>  Details</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 <ng-template #noClients>
   <hr>
   <h5>404 no clients</h5>
